@@ -1,2 +1,6 @@
- 
- h<sub>&theta;</sub>(x) = &theta;<sub>o</sub> x + &theta;<sub>1</sub>x
+Bayesglm Sampling Algorithm
+========
+
+The bayesglm package uses the Metropolis-Hastings algorithm to constructing Markov chains that explore the posterior distributions.
+
+ &alpha(&theta, &phi) = min(1, )
