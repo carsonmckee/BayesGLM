@@ -285,7 +285,7 @@ class glm(object):
             variables = self.__prior_names_ordered
         fig, axs = plt.subplots(len(variables), sharex=True, sharey=False)
         for i, variable in enumerate(variables):
-            axs[i].plot(self.__chains.index, self.__chains[variable], linewidth=0.6, alpha=0.8)
+            axs[i].plot(self.__chains.index, self.__chains[variable], linewidth=0.6)
             axs[i].set_ylabel(variable)
 
         return axs
