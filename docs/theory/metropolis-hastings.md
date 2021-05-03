@@ -16,3 +16,16 @@ If we say that <img src="https://latex.codecogs.com/svg.latex?&space;\phi"/> is 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;\alpha(\theta,\phi)=min\left(1,\frac{\pi(\phi)q(\theta|\phi)}{\pi(\theta)q(\phi|\theta)}\right)"/>
 </p>
+
+## The Proposal Distribution
+
+The Metropolis-Hastings algorithm requires that we specify a proposal distribution, q, along with any tuning paramters e.g. the proposal distribution variance. The performance of the algorithm in successfully converging to and exploring the target density will depend on our choice of proposal distribution. Note that if the proposal distribution is a symmetric distribution, that is to say
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\q(\phi|\theta)=\q(\theta|\phi)"/>
+</p>
+then the acceptance probability simplifies to,
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\alpha(\theta,\phi)=min\left(1,\frac{\pi(\phi)}{\pi(\theta)}\right)"/>
+</p>
+This special case is known as the 'Random Walk Metropolis-Hastings Algorithm'. An example of a symmetric proposal distribution would be the Normal distribution.
+
