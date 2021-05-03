@@ -12,7 +12,7 @@ The Metropolis-Hastings algorithm constructs such a Markov chain using two main 
 1. Given our current position at time, t, generate a 'proposal' sample from a proposal probability distribution, conditioned on only the current position. 
 2. Correct the proposal sample such that any proposals that stray too far from the target density are rejected.
 
-If we say that,
+If we say that <img src="https://latex.codecogs.com/svg.latex?&space;\phi"/> is our proposal 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;\pi(\theta'|\theta)"/>
 </p>
