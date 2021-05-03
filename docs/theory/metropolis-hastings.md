@@ -1,13 +1,26 @@
 # Bayesglm Sampling Algorithm
 
-The bayesglm package uses the Metropolis-Hastings algorithm to constructing Markov chains that explore the posterior distributions. Recall that in the Bayesian Framework, we aim to explore the posterior distribution:
+The bayesglm package uses the Metropolis-Hastings algorithm to construct Markov chains. Recall that in the Bayesian Framework, we aim to explore the posterior distribution:
 
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;\pi(\theta|x)=\frac{f(x|\theta)p(\theta)}{f(x)}"/>
 </p>
 
-where 'f' is the likelihood, 'p' is the prior distribution and 'f(x)' is a normalizing constant based soley on the data. In order to explore the posterior distribution we construct a markov chain for each unknown paramter in the model and run it until it has converged to and sufficiently explored the target distribution (the poseterior). 
+where 'f' is the likelihood, 'p' is the prior distribution and 'f(x)' is a normalizing constant based soley on the data, x. In order to explore the posterior distribution we construct a markov chain with a transition kernel that 'preserves' the posterior density, meaning that over sufficient time steps the chain will converge to the posterior distribution. After the chain has converged we can discard the first N iterations as burn-in and use the converged chain iterations as samples from the posterior distibution.
 
+The Metropolis-Hastings algorithm constructs such a Markov chain using two main steps:
+1. Given our current position at time, t, generate a 'proposal' sample from a proposal probability distribution, conditioned on only the current position. 
+2. Correct the proposal sample such that any proposals that stray too far from the target density are rejected.
+
+If we say that,
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\pi(\theta'|\theta)"/>
+</p>
+is our proposal distribution for the proposal step given the current step and
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\pi(\theta)"/>
+</p>
+is out target density. Then at each proposal step, we reject the proposal value of &theta' with probability:
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;\alpha(\theta,\phi)=min\left(1,\frac{\pi(\phi)q(\theta|\phi)}{\pi(\theta)q(\phi|\theta)}\right)"/>
 </p>
