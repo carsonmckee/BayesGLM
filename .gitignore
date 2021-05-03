@@ -16,3 +16,5 @@ wind_farm_test.py
 build
 __pycache__
 binomial_data.csv
+py_model.cpp
+py_model.cpython-37m-darwin.so
