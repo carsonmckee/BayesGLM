@@ -2,6 +2,4 @@
 
 The bayesglm package uses the Metropolis-Hastings algorithm to constructing Markov chains that explore the posterior distributions.
 
-<p style="text-align:center;">
-<img src="https://latex.codecogs.com/svg.latex?&space;\alpha(\theta,\phi)=min\left(1,\frac{\pi(\phi)q(\theta|\phi)}{\pi(\theta)q(\phi|\theta)}\right)" />
-</p>
+<img src="https://latex.codecogs.com/svg.latex?&space;\alpha(\theta,\phi)=min\left(1,\frac{\pi(\phi)q(\theta|\phi)}{\pi(\theta)q(\phi|\theta)}\right)" align="center"/>
