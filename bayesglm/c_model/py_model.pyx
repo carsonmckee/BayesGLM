@@ -5,7 +5,7 @@ from libcpp.vector cimport vector
 import numpy as np
 
 cdef class PyModel(object):
-    cdef Model*c_model
+    cdef Model*c_model 
       
     def __cinit__(self, family_name,
                         formula_str,

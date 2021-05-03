@@ -6,7 +6,7 @@ import utils as utils
 import py_model as py_model
 import matplotlib.pyplot as plt
 
-from distributions import Prior, Distribution, Normal, Binomial, Poisson, Gamma, Uninformed, Laplace
+from distributions import Distribution, Normal, Binomial, Poisson, Gamma, Uninformed, Laplace
 from pandas.api.types import is_numeric_dtype
 from typing import Dict, List
 
