@@ -35,49 +35,6 @@ class Distribution(object):
         return not self.__eq__(other)
 
 
-class Prior(object):
-    """
-    This holds a distribution and allows it to be distinguished as a prior.
-    """
-    __slots__ = ["variable", "dist"]
-
-    def __init__(self, variable: str, dist: Distribution):
-        """
-        :param variable: the name of the model variable the prior is for
-        :type variable: str
-        :param dist: the statistical distribution for the prior
-        :type dist: distributions.Distribution
-        """
-        self.variable = variable
-        if "*" in self.variable:
-            sorted_ = sorted(self.variable.split("*"))
-            self.variable = "*".join(sorted_)
-        self.dist = dist
-
-    def get_dependencies(self):
-        """
-        method to get a list of any priors that exist in a hierarchy
-        beneath this prior of which this prior depends upon
-        """
-        deps = []
-        for arg in self.dist.ARG_VALUES:
-            if isinstance(arg, Prior):
-                deps += arg.get_dependencies() + [arg] #order here is important-> deps should go first
-        return deps
-    
-    def __eq__(self, other):
-        a = isinstance(other, Prior)
-        b = (self.variable == other.variable)
-        c = (self.dist == other.dist)
-        if(all([a,b,c])):
-            return True
-        else:
-            return False
-    
-    def __ne__(self, other):
-        return not self.__eq__(other)
-
-
 class Normal(Distribution):
 
     NAME = 'normal'
