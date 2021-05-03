@@ -10,7 +10,7 @@ where 'f' is the likelihood, 'p' is the prior distribution and 'f(x)' is a norma
 
 The Metropolis-Hastings algorithm constructs such a Markov chain using two main steps:
 1. Given our current position, <img src="https://latex.codecogs.com/svg.latex?&space;\theta"/>, generate a 'proposal' sample, <img src="https://latex.codecogs.com/svg.latex?&space;\phi"/>, from a proposal probability distribution, <img src="https://latex.codecogs.com/svg.latex?&space;q(\phi|\theta)"/>.
-2. Correct the proposal sample such that any proposals that stray too far from the target density are rejected.
+2. Correct the proposal sample such that any proposals that stray too far from the target density, <img src="https://latex.codecogs.com/svg.latex?&space;\pi(\theta|x)"/>, are rejected.
 
 If we say that <img src="https://latex.codecogs.com/svg.latex?&space;\phi"/> is our proposal step, generated from our proposal distribution <img src="https://latex.codecogs.com/svg.latex?&space;q(\phi|\theta)"/>, then we accept/reject <img src="https://latex.codecogs.com/svg.latex?&space;\phi"/> with probability
 <p align="center">
