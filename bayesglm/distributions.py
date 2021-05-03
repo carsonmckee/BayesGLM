@@ -6,7 +6,7 @@ class Distribution(object):
 
     def __init__(self):
         self.ARG_VALUES = []
-       
+    
     def __str__(self):
         args = []
         for i in self.ARG_VALUES:
