@@ -331,12 +331,12 @@ if __name__ == "__main__":
 
     model = glm(formula="y ~ .",
                 priors=priors,
-                family=Binomial(),
-                data=data)
+                family=Poisson(),
+                data=data2)
 
     init = {"Intercept":1, "x1": 0, "x2":0, "x3":0}            
 
-    model.fit(chain_length=20000, burn_in=15000, initial_pos=init)
+    model.fit(chain_length=40000, burn_in=6000, initial_pos=init)
 
     model.summary()
 
