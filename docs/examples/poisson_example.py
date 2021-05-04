@@ -5,7 +5,6 @@ from bayesglm.bglm import glm
 from distributions import Normal, Poisson, Uninformed, Laplace, HalfCauchy
 
 if __name__ == "__main__":
-    import cProfile
     
     data = pandas.read_csv("/Users/carsonmckee/dev/bayesglm_2/bayesglm/pois_data.csv")
 
