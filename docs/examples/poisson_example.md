@@ -4,7 +4,7 @@ Poisson Response Data Example
 In this example we will look at a small simulated data set that consists of three predictor variables and a count response variable. Here we will use a Poisson GLM with the log link function. The model specification is as follows:
 
 <p align="center">
-<img src="https://latex.codecogs.com/svg.latex?&space;Y_i\sim Pois\left(\lambda_i\right)"/></p>
+<img src="https://latex.codecogs.com/svg.latex?&space;Y_i\sim\mathcal{Pois}\left(\lambda_i\right)"/></p>
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;lambda_i=e^{\beta_0+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\beta_{3}x_{i,3}}"/></p>
 
