@@ -255,7 +255,7 @@ class glm(object):
                                self.__prior_names_ordered)
         return out
 
-    def plot_prior_densities(self, variables: List[str]=None):
+    def plot_chain_densities(self, variables: List[str]=None):
         """
         plots the marginal posterior densities of given parameters using the fitted markov chains
         """
@@ -332,8 +332,8 @@ if __name__ == "__main__":
 
     model = glm(formula="y ~ .",
                 priors=priors,
-                family=Poisson(),
-                data=data2)
+                family=Binomial(link='logit'),
+                data=data)
 
     init = {"Intercept":1, "x1": 0, "x2":0, "x3":0}            
 
@@ -350,5 +350,9 @@ if __name__ == "__main__":
     plt.close()
 
     model.plot_chain_trace(burn_in=False)
+    plt.show()
+    plt.close()
+
+    model.plot_chain_densities()
     plt.show()
     plt.close()
