@@ -1,9 +1,22 @@
 Bernoulli Response Data Example
 ========
 
-In this example we will look at a small simulated data set that consists of three predictor variables and a binary response variable. Here we will use a Bernoulli GLM with the logit link function.
+In this example we will look at a small simulated data set that consists of three predictor variables and a binary response variable. Here we will use a Bernoulli GLM with the logit link function. The model specification is as follows:
 
-First import the required bayesglm modules along with pandas and read the data.
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;Y_i\simPois\left(\lambda_i\right)"/></p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;lambda_i=e^{\beta_0+beta_{1}x_{i,1}+beta_{2}x_{i,2}+beta_{3}x_{i,3}}"/></p>
+
+For our priors we will specify:
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{0}\simUninformed"/></p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{i}\simNormal(0,3),i=1,2,3"/></p>
+
+Now we will go through how to fit this model in bayesglm. 
+First import the required classes from bayesglm and import the data as a pandas dataframe.
+
 ```python
 import pandas
 from bayesglm.bglm import glm

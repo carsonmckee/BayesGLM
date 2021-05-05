@@ -352,7 +352,3 @@ if __name__ == "__main__":
     model.plot_chain_trace(burn_in=False)
     plt.show()
     plt.close()
-
-    model.plot_chain_densities()
-    plt.show()
-    plt.close()
