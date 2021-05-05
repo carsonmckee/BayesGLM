@@ -12,7 +12,7 @@ For our priors we will specify:
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;\beta_{0}\sim\text{Uninformed}"/></p>
 <p align="center">
-<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{k}\sim\mathcal{N}(0,3), k=1,2,3"/></p>
+<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{k}\sim\mathcal{N}(0,3),k=1,2,3"/></p>
 
 Now we will go through how to fit this model in bayesglm. 
 First import the required bayesglm modules along with pandas and read the data.
