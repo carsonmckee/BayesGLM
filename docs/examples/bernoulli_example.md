@@ -1,7 +1,22 @@
 Bernoulli Response Data Example
 ========
 
-In this example we will look at a small simulated data set that consists of three predictor variables and a binary response variable. Here we will use a Bernoulli GLM with the logit link function.
+In this example we will look at a small simulated data set that consists of three predictor variables and a binary response variable. Here we will use a Bernoulli GLM with the logit link function. The model specification is as follows:
+
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;Y_i\sim\text{Bern}\left(p_i\right)"/></p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;p_i=\frac{1}{1+e^{-\eta\left(x_i\right)}}"/></p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\eta\left(x_i\right)=\beta_0+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\beta_{3}x_{i,3}"/></p>
+
+For our priors we will specify:
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{0}\sim\text{Uninformed}"/></p>
+<p align="center">
+<img src="https://latex.codecogs.com/svg.latex?&space;\beta_{k}\sim\mathcal{N}(0,3),k=1,2,3"/></p>
+
+Now we will go through how to fit this model in bayesglm. 
 
 First import the required bayesglm modules along with pandas and read the data.
 ```python
@@ -64,7 +79,7 @@ Node       Prior        Mean        s.d.      [2.5%        97.5%]       Acc. Rat
 ------------------------------------------------------------------------------------
 Intercept  uninformed   1.747       0.360     1.077        2.496        0.284       
 x1         normal       0.782       0.486     -0.127       1.764        0.301       
-x2         uninformed   0.606       0.422     -0.215       1.451        0.260       
+x2         normal       0.606       0.422     -0.215       1.451        0.260       
 x3         normal       -0.406      0.390     -1.189       0.322        0.259       
 ------------------------------------------------------------------------------------
 ```
