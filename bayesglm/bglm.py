@@ -10,9 +10,7 @@ from distributions import Distribution, Normal, Binomial, Poisson, Gamma, Uninfo
 from pandas.api.types import is_numeric_dtype
 from typing import Dict, List
 
-
 logger = logging.getLogger(__name__)
-
 
 class glm(object):
     """
@@ -275,7 +273,7 @@ class glm(object):
         fig.text(0, 0.5, 'Density', va='center', rotation='vertical')
         return axs
 
-    def plot_chain_trace(self, variables: List[str]=None):
+    def plot_chain_trace(self, variables: List[str]=None, burn_in:bool=True):
         """
         plots the markov chains of a given list of parameters
         """
@@ -285,7 +283,10 @@ class glm(object):
             variables = self.__prior_names_ordered
         fig, axs = plt.subplots(len(variables), sharex=True, sharey=False)
         for i, variable in enumerate(variables):
-            axs[i].plot(self.__chains.index, self.__chains[variable], linewidth=0.6)
+            if not burn_in:
+                axs[i].plot(self.__chains[variable][self.__burn_in:], linewidth=0.6)
+            else:
+                axs[i].plot(self.__chains[variable], linewidth=0.6)
             axs[i].set_ylabel(variable)
 
         return axs
@@ -336,7 +337,7 @@ if __name__ == "__main__":
 
     init = {"Intercept":1, "x1": 0, "x2":0, "x3":0}            
 
-    model.fit(chain_length=40000, burn_in=6000, initial_pos=init)
+    model.fit(chain_length=30000, burn_in=5000, initial_pos=init)
 
     model.summary()
 
@@ -348,12 +349,6 @@ if __name__ == "__main__":
     plt.show()
     plt.close()
 
-    model.plot_chain_trace()
+    model.plot_chain_trace(burn_in=False)
     plt.show()
     plt.close()
-
-    plots = model.plot_prior_densities()
-    plt.show()
-    plt.close()
-
-    print(0)
