@@ -6,7 +6,7 @@ In this example we will look at a small simulated data set that consists of thre
 <p align="center">
 <img src="https://latex.codecogs.com/svg.latex?&space;Y_i\sim\text{Pois}\left(\lambda_i\right)"/></p>
 <p align="center">
-<img src="https://latex.codecogs.com/svg.latex?&space;lambda_i=e^{\beta_0+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\beta_{3}x_{i,3}}"/></p>
+<img src="https://latex.codecogs.com/svg.latex?&space;\lambda_i=e^{\beta_0+\beta_{1}x_{i,1}+\beta_{2}x_{i,2}+\beta_{3}x_{i,3}}"/></p>
 
 For our priors we will specify:
 <p align="center">
