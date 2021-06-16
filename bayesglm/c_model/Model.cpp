@@ -366,7 +366,6 @@ double Model::DIC(){
     return -4.0*post_mean + 2.0*point_est_like;
 }
 
-
 double Model::AIC(){ 
     //function to get the DIC of the model after sampling has been carried out
     

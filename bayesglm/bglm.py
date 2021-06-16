@@ -134,7 +134,7 @@ class glm(object):
         self.__chains = self.get_chains()
         if (acc_rates < 0.15).any()[0] or (acc_rates > 0.5).any()[0]:
             logger.warning("Convergence Warning: Some chains have high/low acceptance rates, chain mixing may be poor.")
-        
+    
     def plot_prior_hierarchy(self):
         pass
 
